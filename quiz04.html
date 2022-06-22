@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function check(){
+		if(id.value==""||id.value==null){
+			alert('아이디는 필수 사항입니다')
+			id.focus();
+		}else{
+			if(pw.value==""||pw.value==null){
+				alert('비밀번호는 필수 사항입니다')
+				pw.focus();
+			}else{
+				if(pwcheck.value==null){
+					alert('비밀번호확인은 필수 사항입니다')
+					pwcheck.focus();
+				}else if(pwcheck.value!=pw.value){
+					alert('비밀번호확인이 불일치합니다')
+					pwcheck.focus();
+				}else{
+					location.href='quiz04success.html'
+				}
+			}			
+		}
+		
+	}
+
+
+</script>
+
+</head>
+<body>
+	<form id="fo" action="quiz04success.html" style="text-align: center;">
+		<input type="text" id="id" name="id" placeholder="아이디 (*필수항목)"><br>
+ 		<input type="password" id="pw" name="pw" placeholder="비밀번호 (*필수항목)"><br>
+		<input type="password" id="pwcheck" name="pwcheck" placeholder="비밀번호 확인 (*필수항목)"><br>
+		<input type="text" id="name" name="name" placeholder="이름"><br> 
+		<hr>
+		<input type="button" value="등록" onclick="check()">
+	</form>
+
+</body>
+</html>

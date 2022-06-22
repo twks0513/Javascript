@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.buttondiv{
+		background-color: pink;
+		margin-left: 33.33%;
+		margin-right: 33.33%;
+		text-align: center;			
+	}
+	img{
+		text-align: center;
+		margin: auto;
+		width: 33.33%;
+		height: 500px;
+		
+	}
+
+</style>
+<script type="text/javascript">
+	var i=1	
+	function next(){						
+		let img = document.getElementById('img')
+		img.src="images/test"+(++i)+".jpg"	
+		if(i==9){
+			img.src="images/test1.jpg"
+			i=1
+		}
+	}
+	function prev(){		
+		let img = document.getElementById('img')
+		img.src="images/test"+(--i)+".jpg"
+		if(i==0){
+			img.src="images/test8.jpg"
+			i=8
+		}
+	}
+
+</script>
+</head>
+<body>	
+	<div align="center">
+	<img class="image" id="img" src="images/test1.jpg"><br>
+	</div>
+	<div class="buttondiv">
+		<button class="prevb" id="prevbi" onclick="prev()" >이전사진</button>
+		<button class="nextb" id="nextbi" onclick="next()" >다음사진</button>
+	</div>	
+</body>
+</html>
