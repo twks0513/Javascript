@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.light img{ width: 200px; height: 200pxl;}
+</style>
+<script type="text/javascript">
+	var path
+	function lightOn(){
+		path = 'images/light_on.jpg'
+		document.getElementById('img').src=path
+	}
+	function lightOff(){
+		path = 'images/light_off.jpg'
+		document.getElementById('img').src=path
+	}
+	
+</script>
+</head>
+<body>
+<div class="wrapper"> 
+	<div class="light">
+		<img id="img" src="images/light_off.jpg" onmousedown="lightOn()" onmouseup="lightOff()">	
+	</div>
+</div>
+
+</body>
+</html>

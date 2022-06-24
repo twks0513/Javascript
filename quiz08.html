@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#div1{display:block; }
+	.div1{ text-align: center; width: 100px; height: 100px;}
+	.bt1c{text-align:center; background-color: yellow; width: 100px; height: 100px;}
+	.bt2c{text-align:center; background-color: green; width: 100px; height: 100px;}
+	.bt3c{text-align:center; background-color: pink; width: 100px; height: 100px;}
+	.bt4c{text-align:center; background-color: red; width: 100px; height: 100px;}
+	#bt1{ display: none;}
+	#bt2{ display: none;}
+	#bt3{ display: none;}
+	#bt4{ display: none; }
+</style>
+
+<script type="text/javascript">
+function init(){
+	var b1 = document.getElementById('button1')
+	var b2 = document.getElementById('button2')
+	var b3 = document.getElementById('button3')
+	var auto = document.getElementById('auto')
+	var rm = document.getElementById('remove')
+	b1.addEventListener('click',btn_click)
+	b2.addEventListener('click',btn_click)
+	b3.addEventListener('click',btn_click)
+	auto.addEventListener('click',btn_click)
+	rm.addEventListener('click',btn_click)	
+}
+
+function btn_click(){
+	let bt1
+	switch(event.target.id){
+	case'button1':
+		div1 = document.getElementById('div1')
+		div1.style.display='block'
+		bt1 = document.getElementById('bt1')
+		bt1.innerHTML='버튼 1 클릭'
+		bt1.setAttribute('class','bt1c')
+		bt1.style.display='block'
+		break;
+	case'button2':
+		div1 = document.getElementById('div1')
+		div1.style.display='block'
+		bt1 = document.getElementById('bt1')
+		bt1.innerHTML='버튼 2 클릭'
+		bt1.setAttribute('class','bt2c')
+		bt1.style.display='block'
+		break;
+	case'button3':
+		div1 = document.getElementById('div1')
+		div1.style.display='block'
+		bt1 = document.getElementById('bt1')
+		bt1.innerHTML='버튼 3 클릭'
+		bt1.setAttribute('class','bt3c')
+		bt1.style.display='block'
+		break;
+	case'auto':
+		div1 = document.getElementById('div1')
+		div1.style.display='block'
+		setInterval(auto,400)
+		
+		break;
+	case'remove': 
+		stop()
+		div1 = document.getElementById('div1')
+		div1.style.display='none'
+		break;
+	
+	}
+}
+
+function remove(){
+	bt1 = document.getElementById('bt1')
+	bt1.style.display='none'
+}
+
+function auto(){	
+	bt1 = document.getElementById('bt1')
+	bt1.innerHTML='버튼 4 클릭'
+	bt1.setAttribute('class','bt4c')
+	bt1.style.display='block'
+	setTimeout(remove,200)
+}
+
+</script>
+
+</head>
+<body onload="init()")>
+	<input type="button" id="button1" value="버튼1" onclick="btn_click()">
+	<input type="button" id="button2" value="버튼2" onclick="btn_click()">
+	<input type="button" id="button3" value="버튼3" onclick="btn_click()">
+	<input type="button" id="auto" value="자동" onclick="btn_click()">
+	<input type="button" id="remove" value="지우기" onclick="btn_click()">
+	<div id="div1">
+		<h3 id="bt1"></h3>		
+	</div>
+</body>
+</html>

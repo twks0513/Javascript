@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#divmain{z-index:0; display: flex; opacity:1; background-color: white; width: 800px; height: 800px;}
+	#divmain img{ width:100px; height: 100px; margin: 5px; }
+	#divadd {margin:100px; display:none; background-color: gray; border:5px solid brown; text-align: center;
+			position: absolute; z-index: 1; width: 600px; height: 600px;}	
+	#i1 {text-align:center; width:500px; height: 400px;}
+	#i2 {text-align:center; width:500px; height: 400px;}
+	#i3 {text-align:center; width:500px; height: 400px;}
+</style>
+
+<script type="text/javascript">	
+var path
+	function init(){
+		var img1 = document.getElementById('car1')
+		var img2 = document.getElementById('car2')
+		var img3 = document.getElementById('car3')
+		img1.addEventListener('click',sizeUp)
+		img2.addEventListener('click',sizeUp)
+		img3.addEventListener('click',sizeUp)
+	}
+	
+	function background(){
+		let back = document.getElementById('divmain')
+		back.style.backgroundColor='gray'
+		back.style.opacity=0.2				
+	}
+	function sizeUp(){
+		background()
+		let add=document.getElementById('divadd')
+		add.style.display='block'
+		switch(event.target.id){
+		case 'car1': 
+			path = 'images/car01.png'
+			let img = document.createElement('img')
+			let hr = document.createElement('hr')
+			let name = document.createElement('h3')
+			let div = document.getElementById('divadd')
+			img.src= path
+			img.setAttribute('id','i1')
+			hr.setAttribute('id','hr1')
+			name.setAttribute('id','name1')
+			name.innerHTML = 'CAR01'
+			div.appendChild(name)
+			div.appendChild(hr)
+			div.appendChild(img)
+			break;
+  		case 'car2':
+			path = 'images/car02.png'
+			let imga = document.createElement('img')
+			let hra = document.createElement('hr')
+			let namea = document.createElement('h3')
+			let diva = document.getElementById('divadd')
+			imga.src= path
+			imga.setAttribute('id','i2')
+			hra.setAttribute('id','hr2')
+			namea.setAttribute('id','name2')
+			namea.innerHTML = 'CAR02'
+			diva.appendChild(namea)
+			diva.appendChild(hra)
+			diva.appendChild(imga)
+			break;
+		case 'car3':
+			path = 'images/car03.png'
+			let imgb = document.createElement('img')
+			let hrb = document.createElement('hr')
+			let nameb = document.createElement('h3')
+			let divb = document.getElementById('divadd')
+			imgb.src= path
+			imgb.setAttribute('id','i3')
+			hrb.setAttribute('id','hr3')
+			nameb.setAttribute('id','name3')
+			nameb.innerHTML = 'CAR03'
+			divb.appendChild(nameb)
+			divb.appendChild(hrb)
+			divb.appendChild(imgb)
+			break;
+		}
+		
+	}
+	function closed(){
+		close = document.getElementById('divmain')
+		close.style.backgroundColor='white'
+		close.style.opacity=1
+		add2=document.getElementById('divadd')
+		add2.style.display='none'
+		if(document.getElementById('i1') != null){
+			document.getElementById('i1').remove()
+			document.getElementById('hr1').remove()
+			document.getElementById('name1').remove()
+		}else if(document.getElementById('i2') != null){
+			document.getElementById('i2').remove()
+			document.getElementById('hr2').remove()
+			document.getElementById('name2').remove()
+			
+		}else if(document.getElementById('i3') != null)	{
+			document.getElementById('i3').remove()
+			document.getElementById('hr3').remove()
+			document.getElementById('name3').remove()
+		}
+			
+
+	}
+</script>
+
+</head>
+<body onload="init()">
+		<div id="divadd">
+			<input type="button" value="X" onclick="closed()">
+		</div>
+		<div id="divmain">
+			<img id="car1" src="images/car01.png">
+			<img id="car2" src="images/car02.png">
+			<img id="car3" src="images/car03.png">
+		</div>	
+
+
+</body>
+</html>
